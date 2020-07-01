@@ -2,10 +2,13 @@ import React from 'react'
 import { Link } from "react-router-dom"
 import { connect } from 'react-redux'
 
-import { increment } from '../../redux/actions'
+import { increment, loadList } from '../../redux/actions'
 
 import './index.css';
-@connect(state => ({ number: state.number }), { increment })
+@connect(state => ({ 
+  number: state.number,
+  list: state.list
+}), { increment, loadList })
 
 export default class App extends React.Component {
   constructor(props) {
@@ -14,6 +17,9 @@ export default class App extends React.Component {
   }
   onClick() {
     this.props.increment()
+  }
+  onloadList() {
+    this.props.loadList()
   }
 
   render() {
@@ -28,6 +34,17 @@ export default class App extends React.Component {
           </li>
         </ul>
         <div>current number： {this.props.number} <button onClick={() => this.onClick()}>点击+1</button></div>
+        <div><button onClick={() => this.onloadList()}>请求数据</button></div>
+        <div>
+          <p>请求回来的数据：</p>
+          <ul>
+            {this.props.list.map((list, i) => {
+              return (
+                <li key={`list_${i}`}>{list.title}</li>
+              )
+            })}
+          </ul>
+        </div>
       </div>
     );
   }
