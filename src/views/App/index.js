@@ -5,8 +5,9 @@ import { connect } from 'react-redux'
 import { increment } from '../../redux/actions'
 
 import './index.css';
+@connect(state => ({ number: state.number }), { increment })
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {}
@@ -32,9 +33,4 @@ class App extends React.Component {
   }
 }
 
-export default connect(
-  state => ({
-    number: state.number
-  }), { increment }
-)(App)
 

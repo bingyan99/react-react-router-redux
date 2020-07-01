@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/core": "7.9.0",
+    "@babel/plugin-proposal-decorators": "^7.10.4",
     "@svgr/webpack": "4.3.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -137,6 +138,9 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      ["@babel/plugin-proposal-decorators", { "legacy": true }]
     ]
   }
 }
