@@ -2,13 +2,10 @@ import React from 'react'
 import { Link } from "react-router-dom"
 import { connect } from 'react-redux'
 
-import { increment, loadList } from '../../redux/actions'
+import { increment, loadList } from '../../redux/actions/app'
 
 import './index.css';
-@connect(state => ({ 
-  number: state.number,
-  list: state.list
-}), { increment, loadList })
+@connect(state => ({ ...state.appReducer }), { increment, loadList })
 
 export default class App extends React.Component {
   constructor(props) {

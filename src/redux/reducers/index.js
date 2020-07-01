@@ -1,24 +1,10 @@
-const initialState = {
-  number: 3,
-  list: []
-}
+import homeReducer from './home'
+import appReducer from './app'
 
-const incrementReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'INCREMENT': {
-      state.number += 1
-      return { ...state }
-    }
-    case 'LOAD_LIST': {
-      const list = action.payload
-      return {
-        ...state,
-        list
-      }
-    }
-    default:
-      return state;
-  }
-}
+import { combineReducers } from 'redux'
 
-export default incrementReducer
+const reducers = combineReducers({
+  homeReducer,
+  appReducer,
+})
+export default reducers
