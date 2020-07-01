@@ -1,0 +1,10 @@
+{
+  "extends": "react-app",
+  "parserOptions": {
+    "ecmaVersion": 6, // ECMAScript version
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "legacyDecorators": true
+    }
+  }
+}

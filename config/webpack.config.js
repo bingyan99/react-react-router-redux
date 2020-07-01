@@ -26,7 +26,6 @@ const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpack
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 
 const postcssNormalize = require('postcss-normalize');
-const eslint = require('eslint')
 
 const appPackageJson = require(paths.appPackageJson);
 
@@ -338,25 +337,6 @@ module.exports = function(webpackEnv) {
                 eslintPath: require.resolve('eslint'),
                 resolvePluginsRelativeTo: __dirname,
                 // 使用.eslintrc的配置
-                baseConfig: (() => {
-                  const eslintCli = new eslint.CLIEngine();
-                  let eslintConfig;
-                  try {
-                    eslintConfig = eslintCli.getConfigForFile(paths.appIndexJs);
-                  } catch (e) {
-                    // A config couldn't be found.
-                  }
-       
-                  // We allow overriding the config only if the env variable is set
-                  if (isExtendingEslintConfig && eslintConfig) {
-                    return eslintConfig;
-                  } else {
-                    return {
-                      extends: [require.resolve('eslint-config-react-app')],
-                    };
-                  }
-                })(),
-                ignore: false,
                 useEslintrc: true,
                 
               },
