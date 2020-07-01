@@ -1,11 +1,17 @@
 import React from 'react';
 
-function Home() {
-  return (
-    <div className="App">
-      Home页面
-    </div>
-  );
+export default class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {}
+  }
+
+  render() {
+    return (
+      <div className="App">
+        Home页面
+      </div>
+    );
+  }
 }
 
-export default Home;
