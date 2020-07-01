@@ -1,11 +1,18 @@
-import React from 'react';
+import React from 'react'
 import { Link } from "react-router-dom"
+import { connect } from 'react-redux'
+
+import { increment } from '../../redux/actions'
+
 import './index.css';
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {}
+  }
+  onClick() {
+    this.props.dispatch(increment())
   }
 
   render() {
@@ -19,9 +26,15 @@ export default class App extends React.Component {
             <Link to="/users">user页面</Link>
           </li>
         </ul>
-        <div>App页面</div>
+        <div>current number： {this.props.number} <button onClick={() => this.onClick()}>点击+1</button></div>
       </div>
     );
   }
 }
+
+export default connect(
+  state => ({
+    number: state.number
+  })
+)(App)
 
