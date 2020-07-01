@@ -1,10 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-
-import App from '../views/App'
-import Home from '../views/Home'
-
-const Users = () => <h2>use页面</h2>;
+import routes from './routes'
 
 
 // A special wrapper for <Route> that knows how to
@@ -25,29 +21,6 @@ function RouteWithSubRoutes(route) {
   );
 }
 
-const routes = [
-  {
-    path: "/home",
-    component: Home,
-    meta: {
-      title: 'home页面'
-    }
-  },
-  {
-    path: "/users",
-    component: Users,
-    meta: {
-      title: 'use页面'
-    }
-  },
-  {
-    path: "*",
-    component: App,
-    meta: {
-      title: '首页'
-    }
-  },
-]
 
 export default (
   <Router>
