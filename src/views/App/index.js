@@ -12,7 +12,7 @@ class App extends React.Component {
     this.state = {}
   }
   onClick() {
-    this.props.dispatch(increment())
+    this.props.increment()
   }
 
   render() {
@@ -35,6 +35,6 @@ class App extends React.Component {
 export default connect(
   state => ({
     number: state.number
-  })
+  }), { increment }
 )(App)
 
