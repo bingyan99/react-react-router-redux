@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import { Link } from "react-router-dom"
 import { connect } from 'react-redux'
 
@@ -14,6 +15,11 @@ export default class App extends React.Component {
   }
   onClick() {
     this.props.increment()
+  }
+  componentWillMount() {
+    axios.post('/getList').then(res => {
+      console.log(res)
+    })
   }
   onloadList() {
     this.props.loadList()
