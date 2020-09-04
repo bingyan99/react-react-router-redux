@@ -35,6 +35,9 @@ export default class App extends React.Component {
           <li>
             <Link to="/users">user页面</Link>
           </li>
+          <li>
+            <Link to="/webview">webview页面</Link>
+          </li>
         </ul>
         <div>current number： {this.props.number} <button onClick={() => this.onClick()}>点击+1</button></div>
         <div><button onClick={() => this.onloadList()}>请求数据</button></div>

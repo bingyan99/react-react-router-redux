@@ -1,6 +1,7 @@
 import App from '../views/App'
 import Home from '../views/Home'
 import User from '../views/User'
+import HTMLView from '../views/webview'
 
 export default [
   {
@@ -15,6 +16,13 @@ export default [
     component: User,
     meta: {
       title: 'user页面'
+    }
+  },
+  {
+    path: "/webview",
+    component: HTMLView,
+    meta: {
+      title: 'webview页面'
     }
   },
   {
